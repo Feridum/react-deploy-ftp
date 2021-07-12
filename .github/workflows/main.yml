@@ -20,8 +20,10 @@ jobs:
         run: cat ~/.ssh/known_hosts
       - name: test2
         run: ls -la ~/.ssh
+      - name: test3
+        run: cat ~/.ssh/id_rsa
       - name: test
-        run: ssh server762694@85.128.137.48 ls
+        run: ssh -i ~/.ssh/id_rsa server762694@85.128.137.48 ls
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
