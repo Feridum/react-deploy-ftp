@@ -25,4 +25,4 @@ jobs:
       - name: Building React
         run: npm run build
       - name: Deploy to server
-        run: cd public && scp ./ ./efektywnyprogramista.pl
+        run: scp ./public/* ${{ secrets.SSH_DEST }}
