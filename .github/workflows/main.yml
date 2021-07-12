@@ -25,4 +25,4 @@ jobs:
       - name: Building React
         run: npm run build
       - name: Deploy to server
-        run: scp ./build/* ${{ secrets.SSH_DEST }}
+        run: scp -r ./build/* ${{ secrets.SSH_DEST }}
