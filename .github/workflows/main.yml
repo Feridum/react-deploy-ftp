@@ -23,7 +23,7 @@ jobs:
       - name: test3
         run: cat ~/.ssh/id_rsa
       - name: test4
-        run: ping server762694.nazwa.pl
+        run: ping server762694.nazwa.pl -c 4
       - name: test
         run: ssh -v server762694@server762694.nazwa.pl ls
       - name: Use Node.js
