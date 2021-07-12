@@ -20,7 +20,8 @@ jobs:
       - name: Deploy to server
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          server: ftp.server762694.nazwa.pl
+          server: server762694.nazwa.pl
           username: server762694_github.action
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./build/
+          protocol: 'ftps'
