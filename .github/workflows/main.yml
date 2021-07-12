@@ -20,6 +20,8 @@ jobs:
         run: cat ~/.ssh/known_hosts
       - name: test2
         run: ls -la ~/.ssh
+      - name: test3
+        run: ssh --help
       - name: test
         run: ssh server762694@server762694.nazwa.pl ls
       - name: Use Node.js
