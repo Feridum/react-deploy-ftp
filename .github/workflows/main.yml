@@ -9,21 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }} 
-          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
-      - name: Adding Known Hosts
-        run: ssh-keyscan -H server762694.nazwa.pl >> ~/.ssh/known_hosts         
-      - name: test1
-        run: cat ~/.ssh/known_hosts
-      - name: test2
-        run: ls -la ~/.ssh
-      - name: test3
-        run: cat ~/.ssh/id_rsa
-      - name: test
-        run: ssh -v server762694@server762694.nazwa.pl ls
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
@@ -33,4 +18,9 @@ jobs:
       - name: Building React
         run: npm run build
       - name: Deploy to server
-        run: scp -r ./build/* ${{ secrets.SSH_DEST }}
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ftp.server762694.nazwa.pl
+          username: server762694_github.action
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./build/
