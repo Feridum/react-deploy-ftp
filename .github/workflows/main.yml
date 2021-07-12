@@ -23,7 +23,7 @@ jobs:
       - name: test3
         run: ssh --help
       - name: test
-        run: ssh server762694@server762694.nazwa.pl ls
+        run: ssh server762694@85.128.137.48 ls
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
